@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="../SiteAssets/CSS/style.css">
+<link rel="stylesheet" href="../SiteAssets/CSS/angucomplete-alt.css">
+<script type="text/javascript" src="../SiteAssets/JavaScript/angular.min.js"></script>
+<script type="text/javascript" src="../SiteAssets/JavaScript/angucomplete-alt.js"></script>
+<script type="text/javascript" src="../SiteAssets/JavaScript/App.js"></script>
+
+<div id="itemMain" ng-app="mainApp">
+	<div id="itemMaster" ng-controller="MasterDetailController">
+		<div id="navigation">
+			<ul>
+				<li><a ng-click="addItem()">Add New Item</a></li>
+				<li>
+					<a href="https://nateamsite.uponor-usa.com/SC/ItemChanges/_layouts/15/start.aspx#/Lists/Items/BatchItems.aspx#InplviewHashf861493d-d92f-4657-9fda-466ed1b5c27b=ShowInGrid%3DTrue">Add Batch Items</a>
+				</li>
+				<li><a ng-click="addDocument()">Add New Document</a></li>
+				<li><a href="../Lists/Items/AllItems.aspx">View Items</a></li>
+				<li><a href="../ChangeDocuments/Forms/AllItems.aspx">View Documents</a></li>
+			</ul>
+		</div>
+		<div id="instructions">
+			<ul>
+				<li>To quickly determine which documents correspond to an item, type the item number in the search box.</li>
+				<li>To add an item or a document, click the corresponding link.</li>
+				<li>To View all the items or Documents, click the view links.  These pages allow for searching as well.</li>
+			</ul>
+		</div>
+		<br>				
+		<div id="itemMasterData">
+			<span style="margin-bottom: 5px;">Item Number:</span><br>
+			<angucomplete-alt id="ex1"
+              placeholder="Search Items"
+              pause="100"
+              selected-object="itemSelected"
+              local-data="listOfItems"
+              search-fields="ItemName"
+              title-field="ItemName"
+              description-field="Id"
+              minlength="2"
+              input-class="form-control form-control-small"/>
+			<!-- <label for="itemSelect">Select Item:</label>			
+			<select id="itemSelect" ng-model="selectedItem" ng-options="item.ItemName for item in listOfItems track by item.Id"
+			        ng-change="selectItemDocuments(selectedItem)">
+			</select>
+			<h2>Referenced documents for {{selectedItem.ItemName}}</h2> -->
+		</div>
+		<br><br>
+		<div id="itemDetailData">
+			<table>
+				<tr>
+					<th>Document</th>
+					<th>Document Type</th>
+					<th>Modified Date</th>
+				</tr>
+				<tr ng-repeat="document in listOfDocuments">
+					<td><a href="{{document.FileLink}}">{{document.Title}}</a></td>
+					<td>{{document.DocType}}</td>
+					<td>{{document.Modified}}</td>					
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:ISO_x0020_Controlled msdt:dt="string">0</mso:ISO_x0020_Controlled>
+<mso:ISO_x0020_Clause msdt:dt="string"></mso:ISO_x0020_Clause>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<title>Item Change Application</title></head>

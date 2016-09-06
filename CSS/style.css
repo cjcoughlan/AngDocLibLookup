@@ -1,0 +1,37 @@
+#navigation{
+	font-size: 16px;
+}
+#navigation ul{
+	padding-left: 0;
+}
+
+#navigation ul li{
+	list-style-type: none;
+	display: inline;
+	padding-right: 25px;
+}
+
+.itemData table, td, th {  
+    /*border: 1px solid green;  */
+}  
+#itemMasterData h2{
+	padding-top: 14px;
+}
+  
+.itemData th {  
+    background-color: green;  
+    color: white;  
+} 
+#itemDetailData{
+	padding-top: 14px;
+}
+#itemDetailData th, #itemDetailData td{
+	width: 300px;
+	text-align: left;
+}
+a[ng-click]{
+	cursor: pointer;	
+}
+#ex1_value{
+	margin-top: 5px;
+}
